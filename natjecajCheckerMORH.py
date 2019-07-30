@@ -15,7 +15,7 @@ jobsForMe = []
 
 
 def scrapSiteForJobs():
-    for i in range(1, 8):
+    for i in range(1, 4):
         url = "https://www.morh.hr/kategorija/karijera-u-morh-u/natjecaji-i-oglasi/page/" + str(i) + "/"
         siteContent = dohvatiStranicu(url)
         jobs = siteContent.find_all('a')
@@ -44,4 +44,8 @@ def checkForJob():
             print(job)
 
 
-checkForJob()
+jos = "da"
+while jos == "da":
+    jobsForMe.clear()
+    checkForJob()
+    jos = input("Ponoviti pretraživanje? (da/ne): ")
